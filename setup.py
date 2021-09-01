@@ -1,14 +1,9 @@
-from asyncio.windows_events import NULL
-from os import remove
 import discord
-from discord import reaction
-from discord import role
-from discord import guild
-from discord import emoji
 from discord.channel import CategoryChannel, TextChannel, VoiceChannel
 from discord.enums import ChannelType
 from discord.guild import Guild
-
+from dotenv import load_dotenv
+import os
 
 
 TOKEN = "ODgyMjgzNDMxNjg0MzY2MzU2.YS5Ieg.XplBonhhyQjeK9TrJHRaXypt1p8"
@@ -108,5 +103,5 @@ async def create_ticket(user:discord.User, name, role:discord.Role, message):
         await channel.send(user.mention + " Bienvenue ! 😎\n" + message)
         print("Ticket crée : " + name)
 
-
-client.run(TOKEN)
+load_dotenv()
+client.run(os.getenv("TOKEN"))
